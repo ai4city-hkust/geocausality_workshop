@@ -56,7 +56,6 @@ spEDM:::RcppSMapForecast(m2,columbus$CRIME,1:49,1:49,4,theta = 1)
 
 # convergent cross-mapping
 chickegg = as.data.frame(lmtest::ChickEgg)
-## CCM: chickens —> eggs
 ccmres = rEDM::CCM(dataFrame = chickegg, E = 3, columns = "egg", target = "chicken",
                    libSizes = "5 50 5", random = FALSE, noTime = TRUE, showPlot = TRUE)
 
