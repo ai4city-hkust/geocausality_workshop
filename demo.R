@@ -54,3 +54,17 @@ spEDM:::RcppSimplexForecast(m2,columbus$CRIME,1:49,1:49,4)
 # s-mapping
 spEDM:::RcppSMapForecast(m2,columbus$CRIME,1:49,1:49,4,theta = 1)
 
+# convergent cross-mapping
+chickegg = as.data.frame(lmtest::ChickEgg)
+## CCM: chickens —> eggs
+ccmres = rEDM::CCM(dataFrame = chickegg, E = 3, columns = "egg", target = "chicken",
+                   libSizes = "5 50 5", random = FALSE, noTime = TRUE, showPlot = TRUE)
+
+# geographical convergent cross mapping
+columbus = sf::read_sf(system.file("shapes/columbus.gpkg", package="spData"))
+spEDM::simplex(columbus,target = "HOVAL",lib = 1:49)
+spEDM::simplex(columbus,target = "CRIME",lib = 1:49)
+g = spEDM::gccm(columbus, "HOVAL", "CRIME",
+                libsizes = seq(5,40,5), E = c(6,5))
+g
+
