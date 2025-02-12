@@ -52,12 +52,13 @@ scatterplot3d::scatterplot3d(m2[,1:3], pch = 16,
 spEDM:::RcppSimplexForecast(m2,columbus$CRIME,1:49,1:49,4)
 
 # s-mapping
-spEDM:::RcppSMapForecast(m2,columbus$CRIME,1:49,1:49,4,theta = 1)
+spEDM:::RcppSMapForecast(m2,columbus$CRIME,1:49,1:49,4,theta = 0.1)
 
 # convergent cross-mapping
 chickegg = as.data.frame(lmtest::ChickEgg)
 ccmres = rEDM::CCM(dataFrame = chickegg, E = 3, columns = "egg", target = "chicken",
                    libSizes = "5 50 5", random = FALSE, noTime = TRUE, showPlot = TRUE)
+ccmres
 
 # geographical convergent cross mapping
 columbus = sf::read_sf(system.file("shapes/columbus.gpkg", package="spData"))
