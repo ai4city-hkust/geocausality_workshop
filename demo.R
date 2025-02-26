@@ -1,3 +1,11 @@
+# Install the necessary packages:
+install.packages(c("lmtest","NlinTS","rEDM","gdverse"),dep = TRUE)
+
+install.packages("spEDM",
+                 repos = c("https://stscl.r-universe.dev",
+                           "https://cloud.r-project.org"),
+                 dep = TRUE)
+
 # Which came first: the chicken or the egg?
 # US chicken population and egg production
 # -- An annual time series from 1930 to 1983 with 2 variables.
