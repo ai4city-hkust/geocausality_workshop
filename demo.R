@@ -62,8 +62,8 @@ ccmres
 
 # geographical detector
 columbus = sf::read_sf(system.file("shapes/columbus.gpkg", package="spData"))
-gdverse::opgd("HOVAL ~ CRIME", data = chickegg, discnum = 3:15)
-gdverse::opgd("CRIME ~ HOVAL", data = chickegg, discnum = 3:15)
+gdverse::opgd("HOVAL ~ CRIME", data = columbus, discnum = 3:15)
+gdverse::opgd("CRIME ~ HOVAL", data = columbus, discnum = 3:15)
 
 # geographical convergent cross mapping
 columbus = sf::read_sf(system.file("shapes/columbus.gpkg", package="spData"))
